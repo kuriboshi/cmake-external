@@ -82,13 +82,13 @@ function(cmake_external name)
   if(EXTERNAL_BUILD_COMMAND)
     set(BUILD_COMMAND "${EXTERNAL_BUILD_COMMAND}")
   else()
-    set(BUILD_COMMAND "${CMAKE_COMMAND} --build .")
+    set(BUILD_COMMAND "${CMAKE_COMMAND} --build . --config Release")
   endif()
 
   if(EXTERNAL_INSTALL_COMMAND)
     set(INSTALL_COMMAND "${EXTERNAL_INSTALL_COMMAND}")
   else()
-    set(INSTALL_COMMAND "${CMAKE_COMMAND} --install .")
+    set(INSTALL_COMMAND "${CMAKE_COMMAND} --install . --config Release")
   endif()
 
   # Generate the cmake configuration file, configure, and install the
@@ -114,9 +114,10 @@ ExternalProject_Add(${NAME}.external
   BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/${NAME}/build
   INSTALL_DIR ${PROJECT_BINARY_DIR}/install
   CONFIGURE_COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}"
-    ${DEFS}
-    -D CMAKE_INSTALL_PREFIX=<INSTALL_DIR>
-    <SOURCE_DIR>
+                                       ${DEFS}
+                                       -D CMAKE_BUILD_TYPE=Release
+                                       -D CMAKE_INSTALL_PREFIX=<INSTALL_DIR>
+                                       <SOURCE_DIR>
   BUILD_COMMAND ${BUILD_COMMAND}
   INSTALL_COMMAND ${INSTALL_COMMAND}
   TEST_COMMAND ""
