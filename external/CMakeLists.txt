@@ -38,3 +38,11 @@ cmake_external(boost
   URL https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.gz
   SHA256 b62bd839ea6c28265af9a1f68393eda37fab3611425d3b28882d8e424535ec9d
 )
+
+cmake_external(libiconv
+  URL https://ftp.gnu.org/gnu/libiconv/libiconv-1.17.tar.gz
+  SHA256 8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313
+  CONFIG_COMMAND ../src/configure --prefix <INSTALL_DIR>
+  BUILD_COMMAND make all
+  INSTALL_COMMAND make install
+)
