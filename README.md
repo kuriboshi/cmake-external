@@ -2,7 +2,7 @@
 
 Simple CMake dependency manager. If you want a more comprehensive and
 well supported dependency manager you might be better off with
-something like [vcpkg](https://vcpkg.io) or [conan](conan.io).
+something like [vcpkg](https://vcpkg.io) or [conan](https://conan.io).
 
 ## Usage
 
@@ -26,7 +26,7 @@ needs.
 
 ```
 file(DOWNLOAD
-  https://raw.githubusercontent.com/kuriboshi/cmake-external/v1.1.0/cmake-external.cmake
+  https://raw.githubusercontent.com/kuriboshi/cmake-external/v1.1.1/cmake-external.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/cmake-external.cmake
   EXPECTED_HASH SHA256=3d616b2d2fc702e7caef237ef86777b6e679140d31e9f2037b4a45b3ce97b81e
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_BINARY_DIR}/cmake)
@@ -121,7 +121,24 @@ cmake_external_find(libiconv INC iconv.h LIB iconv REQUIRED)
 
 ## Versions
 
-Version | SHA256
---------|-------
+ Version | SHA256
+---------|--------
 `v1.0.1` | `eb85f6bfd601ad472160a1d9d2880ac57a96ce635132a4162c1a5a13d9ab9152`
 `v1.1.0` | `3d616b2d2fc702e7caef237ef86777b6e679140d31e9f2037b4a45b3ce97b81e`
+`v1.1.1` | `6d7f7dd546f9027b222009ac532443adfbc2e18b8800e3bc225eec4958319ad3`
+
+## Copyright and Licence
+
+Copyright 2022-2024 Krister Joas
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
